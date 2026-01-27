@@ -177,6 +177,39 @@ telnet your_server_ip 443
 sudo netstat -tlnp | grep xray
 ```
 
+## Service Management
+
+### When to Restart Services:
+
+**🔄 Xray (Core Proxy Server):**
+```bash
+sudo systemctl restart xray
+```
+- **Required when**: `config.json` changes (new users, config updates)
+- **Not required when**: Bot code changes, account management
+- **Similar to V2ray**: Yes, restart needed for config changes
+
+**🔄 V2ray Bot (Python Application):**
+```bash
+pm2 restart v2ray-bot
+```
+- **Required when**: Bot code changes, new features, bug fixes
+- **Not required when**: Adding/removing users (Xray handles this)
+- **Auto-restart**: PM2 handles crashes automatically
+
+**📊 Check Status:**
+```bash
+# Xray status
+sudo systemctl status xray
+
+# Bot status
+pm2 status
+
+# Both logs
+pm2 logs v2ray-bot
+sudo journalctl -u xray -f
+```
+
 ## Security Recommendations
 
 1. **Change SSH port** from default 22
