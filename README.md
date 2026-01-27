@@ -1,6 +1,6 @@
-# V2Ray Telegram Bot
+# XRay Telegram Bot
 
-A modular Telegram bot for managing V2Ray VPN accounts with data and time limits.
+A modular Telegram bot for managing XRay VPN accounts with data and time limits.
 
 ## Features
 
