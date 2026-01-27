@@ -23,13 +23,13 @@ class ClientConfigGenerator:
             "type": "none",
             "host": "",
             "path": "",
-            "tls": "tls"
+            "tls": ""  # Changed from "tls" to empty string
         }
-        
+    
         config_str = json.dumps(vmess_config)
         encoded = base64.b64encode(config_str.encode()).decode()
         return f"vmess://{encoded}"
-    
+
     @staticmethod
     def generate_qr_text(vmess_link: str) -> str:
         """Generate text for QR code (if needed later)"""

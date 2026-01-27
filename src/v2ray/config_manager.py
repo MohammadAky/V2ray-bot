@@ -23,33 +23,27 @@ class V2RayConfigManager:
             self._save_config(base_config)
     
     def _get_base_config(self) -> Dict[str, Any]:
-        """Get base V2Ray configuration"""
+        """Get base V2Ray configuration WITHOUT TLS"""
         return {
-            "log": {
-                "loglevel": "warning"
+        "log": {
+            "loglevel": "warning"
+        },
+        "inbounds": [{
+            "port": SERVER_PORT,
+            "protocol": "vmess",
+            "settings": {
+                "clients": []
             },
-            "inbounds": [{
-                "port": SERVER_PORT,
-                "protocol": "vmess",
-                "settings": {
-                    "clients": []
-                },
-                "streamSettings": {
-                    "network": "tcp",
-                    "security": "tls",
-                    "tlsSettings": {
-                        "certificates": [{
-                            "certificateFile": CERT_FILE,
-                            "keyFile": KEY_FILE
-                        }]
-                    }
-                }
-            }],
-            "outbounds": [{
-                "protocol": "freedom",
-                "settings": {}
-            }]
-        }
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none"  # Changed from "tls" to "none"
+            }
+        }],
+        "outbounds": [{
+            "protocol": "freedom",
+            "settings": {}
+        }]
+    }
     
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration from file"""

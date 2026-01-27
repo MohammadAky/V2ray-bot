@@ -16,8 +16,8 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_IDS = [int(id.strip()) for id in os.getenv("ADMIN_IDS", "").split(",") if id.strip()]
 
 # V2Ray Server Settings
-SERVER_ADDRESS = os.getenv("SERVER_ADDRESS", "your-domain.com")
-SERVER_PORT = int(os.getenv("SERVER_PORT", "443"))
+SERVER_ADDRESS = os.getenv("SERVER_ADDRESS", "your-server-ip")  # Use IP instead
+SERVER_PORT = int(os.getenv("SERVER_PORT", "10086"))  # Change to non-443 port
 
 # Paths
 V2RAY_CONFIG_PATH = os.getenv("V2RAY_CONFIG_PATH", str(BASE_DIR / "config.json"))
