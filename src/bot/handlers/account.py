@@ -63,9 +63,12 @@ async def add_account_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     
     # Add to V2Ray config
     v2ray.add_client(email, account.uuid)
-    
+
+    # Get Reality keys for client config
+    reality_keys = v2ray.get_reality_keys()
+
     # Generate client config
-    config_link = client_gen.generate_vless_link(email, account.uuid)
+    config_link = client_gen.generate_vless_link(email, account.uuid, reality_keys)
     
     response = (
         f"✅ *Account Created Successfully*\n\n"
