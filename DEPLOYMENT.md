@@ -12,7 +12,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # Install essential packages
-sudo apt install -y curl wget git python3 python3-pip ufw unzip
+sudo apt install -y curl wget git python3 python3-pip ufw unzip gnupg2
 ```
 
 ## Step 2: Install Xray
@@ -88,8 +88,16 @@ sudo apt install -y certbot
 # Note: For IP-based Reality, SSL certificates are not strictly necessary
 ```
 
-## Step 8: Run the Bot
+## Step 8: Install Node.js and Run the Bot
 ```bash
+# Install Node.js (required for PM2)
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Verify Node.js installation
+node --version
+npm --version
+
 # Install PM2 for process management
 sudo npm install -g pm2
 
