@@ -6,13 +6,13 @@ from telegram.ext import ContextTypes
 
 from config.settings import ADMIN_IDS, DATABASE_PATH
 from src.database.db import Database
-from src.v2ray.config_manager import V2RayConfigManager
+from src.v2ray.config_manager import XrayConfigManager
 from src.v2ray.client_generator import ClientConfigGenerator
 from src.utils.validators import Validator
 from src.utils.helpers import format_bytes, format_date, get_status_emoji
 
 db = Database(DATABASE_PATH)
-v2ray = V2RayConfigManager()
+v2ray = XrayConfigManager()
 client_gen = ClientConfigGenerator()
 
 
