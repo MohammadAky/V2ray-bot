@@ -65,7 +65,7 @@ async def add_account_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     v2ray.add_client(email, account.uuid)
     
     # Generate client config
-    config_link = client_gen.generate_vmess_link(email, account.uuid)
+    config_link = client_gen.generate_vless_link(email, account.uuid)
     
     response = (
         f"✅ *Account Created Successfully*\n\n"
